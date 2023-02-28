@@ -79,7 +79,7 @@ export default async function search(req, res) {
             .from('Bank')
             .select()
 .or(`branch.ilike.%${req.query.q.toLowerCase()}%`)
-            .order('ifsc',{ascending:true})
+            .order('ifsc',{ascending:false})
 .range(parseInt(req.query.offset),parseInt(req.query.offset)+parseInt(req.query.limit)-1)
         res.send(data)
 }
